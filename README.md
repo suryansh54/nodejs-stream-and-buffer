@@ -54,6 +54,11 @@ readableStream.on('end', function(){
 process.stdout.write('A Simple Message \n');
 ```
 
+Readable Stream | Writable Stream
+------------ | -------------
+Events (data, end, error, close, readable) | Events (drain, finish, error, close, pipe/unpipe)
+Functions [pipe(), unpipe(), read(), unshift(), resume(), pause(), isPaused(), setEncoding()] | Functions [write(), end(), cork(), uncork(), setDefaultEncoding()]
+
 #### 3.Duplex Stream
 - This is a Stream which can be used for both read and write operations.
 
@@ -133,3 +138,11 @@ const buf6 = Buffer.from('tést', 'latin1');
 - **Buffer.from(string[, encoding])** returns a new Buffer that contains a copy of the provided string.
 - **Buffer.alloc(size[, fill[, encoding]])** returns a new initialized Buffer of the specified size. This method is slower than **Buffer.allocUnsafe(size)** but guarantees that newly created Buffer instances never contain old data that is potentially sensitive. A TypeError will be thrown if size is not a number.
 - **Buffer.allocUnsafe(size)** and **Buffer.allocUnsafeSlow(size)** each return a new uninitialized Buffer of the specified size. Because the Buffer is uninitialized, the allocated segment of memory might contain old data that is potentially sensitive.
+
+
+
+###### References
+- https://school.geekwall.in/p/BkqQ4Isif/node-js-streams-everything-you-need-to-know
+- https://medium.com/tensult/stream-and-buffer-concepts-in-node-js-87d565e151a0
+- https://nodejs.org/api/stream.html
+- https://nodejs.org/api/buffer.html
